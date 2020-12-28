@@ -12,7 +12,7 @@ import { Work } from '../models/Work'
 export class BookService {
   apiBaseUrl:string = 'http://127.0.0.1:8000/'
   isbnEndpoint:string = 'isbn'
-  woksEndpoint:string = 'works'
+  worksEndpoint:string = 'works'
   booksEndpoint:string = 'books'
   searchEndpoint:string = 'search.json?q='
 
@@ -23,7 +23,7 @@ export class BookService {
   }
 
   getWorks():Observable<Work[]>{
-    return this.http.get<Work[]>(this.apiBaseUrl+this.woksEndpoint)
+    return this.http.get<Work[]>(this.apiBaseUrl+this.worksEndpoint)
   }
 
   addBook(isbn:string):Observable<any> {
@@ -40,6 +40,10 @@ export class BookService {
 
   searchBook(isbn:string):Observable<any> {
     return this.http.get<any>(this.apiBaseUrl+this.booksEndpoint+'/'+isbn);
+  }
+
+  searchWork(work_id:string):Observable<any> {
+    return this.http.get<any>(this.apiBaseUrl+this.worksEndpoint+'/'+work_id);
   }
 
 }

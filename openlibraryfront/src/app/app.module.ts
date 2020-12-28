@@ -8,6 +8,7 @@ import { BooksComponent } from './components/books/books.component';
 import { BookItemComponent } from './components/book-item/book-item.component';
 import { AddBookComponent } from './components/add-book/add-book.component';
 import { SearchBookComponent } from './components/search-book/search-book.component';
+import { SearchWorkComponent } from './components/search-work/search-work.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { SearchBookComponent } from './components/search-book/search-book.compon
     BookItemComponent,
     AddBookComponent,
     SearchBookComponent,
+    SearchWorkComponent,
   ],
   imports: [
     BrowserModule,

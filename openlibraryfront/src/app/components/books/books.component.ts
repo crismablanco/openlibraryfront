@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from '../../services/book.service';
 import { Book } from '../../models/Book';
+import { Work } from '../../models/Work';
 
 @Component({
   selector: 'app-books',
@@ -10,6 +11,8 @@ import { Book } from '../../models/Book';
 export class BooksComponent implements OnInit {
   books: Book[];
   find_book: Book[];
+
+  find_work: Work[];
 
   constructor(private bs:BookService) { }
 
@@ -31,4 +34,9 @@ export class BooksComponent implements OnInit {
     })
   }
 
+  searchWork(work_id:string){
+    this.bs.searchWork(work_id).subscribe(work => {
+      this.find_work = work;
+    })
+  }
 }

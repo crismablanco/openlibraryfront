@@ -15,3 +15,24 @@
 <br>
 <app-book-item *ngFor="let book of books" [book]="book">
 </app-book-item>
+
+
+<app-search-work (searchWork)=searchWork($event)></app-search-work>
+<br>
+<div *ngIf=find_work>
+  <p> <strong> {{ find_work.work.title }} </strong></p>
+
+  <em>Subjects:</em>
+  <small>{{find_work.work.subjects}}</small>
+  <p>
+    <a target="_blank" href="{{'https://openlibrary.org/' + find_work.work.key }}">see more</a>
+  </p>
+  <p><em> ISBN Editions:</em></p>
+  <ul>
+    <li *ngFor="let e of find_work.editions">
+      <a target="_blank" href="{{'https://openlibrary.org/' + find_work.work.key }}">
+        {{ e.isbn_10 }}
+    </a>
+    </li>
+  </ul>
+</div>
