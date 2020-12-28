@@ -1,5 +1,5 @@
-<h1>Books </h1>
 
-<ul *ngFor="let book of books">
-  <li>{{ book.title }}</li>
-</ul>
+<app-add-book (addBook)=addBook($event)></app-add-book>
+<br>
+<app-book-item *ngFor="let book of books" [book]="book">
+</app-book-item>
