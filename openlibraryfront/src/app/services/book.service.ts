@@ -5,11 +5,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Book } from '../models/Book'
 import { Work } from '../models/Work'
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json'
-  })
-}
 
 @Injectable({
   providedIn: 'root'
@@ -41,6 +36,10 @@ export class BookService {
       }
     }
     return this.http.post<any>(this.apiBaseUrl+this.booksEndpoint, '', httpPostOptions);
+  }
+
+  searchBook(isbn:string):Observable<any> {
+    return this.http.get<any>(this.apiBaseUrl+this.booksEndpoint+'/'+isbn);
   }
 
 }

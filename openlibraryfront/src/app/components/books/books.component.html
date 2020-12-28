@@ -1,4 +1,16 @@
 
+<app-search-book (searchBook)=searchBook($event)></app-search-book>
+<br>
+<div *ngIf=find_book>
+  <p> <strong> {{ find_book.title }} </strong></p>
+  <em>Subjects:</em>
+  <small>{{find_book.subjects}}</small>
+  <p>
+    <a target="_blank" href="{{'https://openlibrary.org/' + find_book.key }}">see more</a>
+  </p>
+  
+</div>
+
 <app-add-book (addBook)=addBook($event)></app-add-book>
 <br>
 <app-book-item *ngFor="let book of books" [book]="book">

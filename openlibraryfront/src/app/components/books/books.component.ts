@@ -9,6 +9,7 @@ import { Book } from '../../models/Book';
 })
 export class BooksComponent implements OnInit {
   books: Book[];
+  find_book: Book[];
 
   constructor(private bs:BookService) { }
 
@@ -21,6 +22,12 @@ export class BooksComponent implements OnInit {
   addBook(isbn:string){
     this.bs.addBook(isbn).subscribe(book => {
       this.books.push(book);
+    })
+  }
+
+  searchBook(isbn:string){
+    this.bs.searchBook(isbn).subscribe(book => {
+      this.find_book = book;
     })
   }
 
